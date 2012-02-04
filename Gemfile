@@ -13,6 +13,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'devise', '2.0.0'
+
 gem 'jquery-rails'
 
 # Use unicorn as the web server
