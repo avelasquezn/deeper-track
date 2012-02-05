@@ -19,6 +19,10 @@ gem 'haml', '~> 3.1.4'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'airbrake'
+gem 'formtastic'
+gem 'formtastic-bootstrap'
+gem 'activeadmin'
+gem 'meta_search',    '>= 1.1.0.pre'
 
 # Use unicorn as the web server
 # gem 'unicorn'
