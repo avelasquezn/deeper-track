@@ -18,6 +18,7 @@ gem 'devise', '2.0.0'
 gem 'haml', '~> 3.1.4'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'airbrake'
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -58,5 +58,5 @@ DeeperTrack::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
   # Default URL for production environment
-  config.action_mailer.default_url_options = { :host => 'deeper-track.heroku.com' }  
+  config.action_mailer.default_url_options = { :host => 'beta-deeper-track.heroku.com' }  
 end
