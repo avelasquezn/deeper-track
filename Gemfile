@@ -25,6 +25,9 @@ gem 'simple_form'
 gem 'activeadmin'
 gem 'sass-rails', "  ~> 3.1.5"
 gem 'meta_search',    '>= 1.1.0.pre'
+gem 'newrelic_rpm'
+# Annotation of Models
+gem 'annotate', '~> 2.4.1.beta'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -41,6 +44,7 @@ group :test do
 end
 group :development do
   gem 'mysql2'
+  gem "rails-erd"
 end
 group :production do
   gem 'pg'
