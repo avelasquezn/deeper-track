@@ -14,6 +14,14 @@ ActiveAdmin::Dashboards.build do
   #       end
   #     end
   #   end
+  section "Recent Users" do
+    ul do
+      User.recent(5).collect do |user|
+        li link_to(user.email, admin_user_path(user))
+      end
+    end
+  end
+
   
   # == Render Partial Section
   # The block is rendered within the context of the view, so you can

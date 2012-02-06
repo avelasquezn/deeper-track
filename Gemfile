@@ -21,6 +21,7 @@ gem 'jquery-rails'
 gem 'airbrake'
 gem 'formtastic'
 gem 'formtastic-bootstrap'
+gem 'simple_form'
 gem 'activeadmin'
 gem 'sass-rails', "  ~> 3.1.5"
 gem 'meta_search',    '>= 1.1.0.pre'
