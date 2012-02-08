@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-  	if user_signed_in? then
+  	unless current_user.blank? then
   		PivotalTracker::Client.use_ssl = true
   		PivotalTracker::Client.token(current_user.pivotaltracker_email, current_user.pivotaltracker_password)
   		PivotalTracker::Project.class_eval do
