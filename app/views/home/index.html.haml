@@ -1,6 +1,6 @@
 :erb
 	<%= Seer::init_visualization %>
-- if current_user.nil?
+- if current_user.blank?
 	.hero-unit
 		%h1 Deeper Track
 		%br

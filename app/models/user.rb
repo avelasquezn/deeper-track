@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   def self.recent(max)
   	order('created_at DESC').limit(max)
   end
+
+  def with_pivotaltracker_token?
+    :pivotaltracker_token.size > 0
+  end
 end
 # == Schema Information
 #
