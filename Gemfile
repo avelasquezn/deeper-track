@@ -26,6 +26,9 @@ gem 'activeadmin'
 gem 'sass-rails', "  ~> 3.1.5"
 gem 'meta_search',    '>= 1.1.0.pre'
 gem 'newrelic_rpm'
+gem 'pivotal-tracker'
+gem 'seer'
+
 # Annotation of Models
 gem 'annotate', '~> 2.4.1.beta'
 

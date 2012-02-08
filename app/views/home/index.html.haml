@@ -1,2 +1,31 @@
-%h1 Welcome to Deeper Track (beta)
-%p Take Your Pivotal Tracker information to the next level.
+:erb
+	<%= Seer::init_visualization %>
+- if current_user.nil?
+	.hero-unit
+		%h1 Deeper Track
+		%br
+		%br
+		%p With Deeper Track take Your Pivotal Tracker information to the next level.
+		%btn.btn-primary.btn-large More &raquo;
+
+- unless @projects.nil?
+	.container
+		.row
+			.span8	
+				%h2 About my projects
+				%p
+					= "There are #{@projects.count} projects registered under Your Pivotal Tracker account."
+		.row		
+			.span8
+				%h2 My projects and memberships
+				%p How many memberships per project? Let's see.
+				#memberships.content
+					:erb
+						<%= Seer::visualize(@projects, :as => :bar_chart, :in_element => 'memberships', :series => {:series_label => 'name', :data_method => 'memberships_count'}, :chart_options => { :height => 250, :width => 70 * @projects.size, :is_3_d => false, :legend => 'yes', :colors => ["#990000"], :title => "Project Memberships", :title_x => 'Memberships', :title_y => 'Projects'}) %>
+		.row
+			.span8
+				%h2 My projects and stories
+				%p This graph shows the size of each project in terms of number of stories.
+				#stories.content
+					:erb
+						<%= Seer::visualize(@projects, :as => :bar_chart, :in_element => 'stories', :series => {:series_label => 'name', :data_method => 'stories_count'}, :chart_options => { :height => 250, :width => 70 * @projects.size, :is_3_d => false, :legend => 'none', :colors => ["#FFFF33"], :title => "Project Stories", :title_x => 'Stories', :title_y => 'Projects'}) %>

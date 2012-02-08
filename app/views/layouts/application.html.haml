@@ -28,15 +28,18 @@
             %span.i-bar
             %span.i-bar
             %span.i-bar
-          %a.brand{:href => "#"}Deeper Track
+          %a.brand Deeper Track
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li= link_to "About", "/"
+            %p.navbar-text.pull-right
+              - if user_signed_in?
+                = "Logged in as #{current_user.email}"
+                = link_to 'Sign out', destroy_user_session_path, :method => :delete
+              - else
+                = link_to 'Sign in', new_user_session_path
 
     .container
-
       .content
         .row
           .span9
@@ -46,11 +49,8 @@
             .well.sidebar-nav
               %h3 Links
               %ul.nav.nav-list
-                %li.nav-header Quick Links
-                %li= link_to "Link 1", "/path1"
-                %li= link_to "Link 2", "/path2"
-                %li= link_to "Link 3", "/path3"
-    
+                %li.nav-header 
+                %li= link_to "About", "/"
       %footer
         %p &copy; Xenda 2012
     /
