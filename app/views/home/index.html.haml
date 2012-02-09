@@ -7,7 +7,13 @@
 		%br
 		%p With Deeper Track take Your Pivotal Tracker information to the next level.
 		%btn.btn-primary.btn-large More &raquo;
-
+- if current_user
+	-# = current_user.pivotaltracker_token
+	-# = current_user.pivotaltracker_email
+	-# = current_user.pivotaltracker_password
+	-# = PivotalTracker::Client.token(current_user.pivotaltracker_email, current_user.pivotaltracker_password)
+	-# = "Trace: index - called token"
+	-# = PivotalTracker::Client.connection
 - unless @projects.nil?
 	.container
 		.row
