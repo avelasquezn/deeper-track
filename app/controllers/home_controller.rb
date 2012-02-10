@@ -22,7 +22,8 @@ class HomeController < ApplicationController
       		PivotalTracker::Client.connection
         rescue PivotalTracker::Client::NoToken  
           return
-        else       
+        else
+          PivotalTracker::Client.token(current_user.pivotaltracker_token)       
     		  @projects = PivotalTracker::Project.all
         end  
       end
