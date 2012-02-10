@@ -4,6 +4,7 @@ class HomeController < ApplicationController
   	if current_user then
       if current_user.with_pivotaltracker_token?
         begin
+          logger.info "Reopening classes"
           PivotalTracker::Project.class_eval do
             def memberships_count
               self.memberships.all.count
@@ -19,11 +20,13 @@ class HomeController < ApplicationController
           end
       		PivotalTracker::Client.use_ssl = true         
           PivotalTracker::Client.token(current_user.pivotaltracker_token)
+          logger.debug "Token1: #{current_user.pivotaltracker_token}"
       		PivotalTracker::Client.connection
         rescue PivotalTracker::Client::NoToken  
           return
         else
-          PivotalTracker::Client.token(current_user.pivotaltracker_token)       
+          logger.debug "Token2: #{current_user.pivotaltracker_token}"
+          PivotalTracker::Client.token(current_user.pivotaltracker_token)
     		  @projects = PivotalTracker::Project.all
         end  
       end
